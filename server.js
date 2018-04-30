@@ -30,13 +30,16 @@ app.get('/spot2', function (req, res) {
     });
 });
 
-app.get('/form/:spot', function (req, res) {
+app.get('/form', function (req, res) {
 
-    var spot = req.params.spot;
+ //   var spot = req.params.spot;
+ //   res.sendFile(__dirname + '/public/html/form.html', spot);
 
-    res.sendFile(__dirname + '/public/html/form.html', spot);
-
-
+    res.sendFile(__dirname + '/public/html/form.html', function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
 });
 
 app.listen(port, function () {
