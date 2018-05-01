@@ -63,14 +63,18 @@
             <textarea id="textarea" class="u-full-width"></textarea>
           </div>
         </div>
-        <div class="row">
-          <div class="five columns">
-            <form ref='uploadForm' id='uploadForm' action='http://localhost:8000/upload' method='post' encType="multipart/form-data">
+        <form ref='uploadForm' id='uploadForm' action='http://localhost:8000/upload' method='post' encType="multipart/form-data">
+          <div class="row">
+            <div class="twelve columns">
               <input type="file" name="reportImage" />
-              <input type='submit' value='Upload!' />
-            </form>
+            </div>
           </div>
-        </div>
+          <div class=" row">
+            <div class="twelve columns">
+              <input type='submit' value='Upload!' />
+            </div>
+          </div>
+        </form>
         <div class="row">
           <div class="twelve columns">
             <input type="submit" class="u-full-width" value="Senden">
