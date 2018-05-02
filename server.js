@@ -42,6 +42,14 @@ app.get('/form', function (req, res) {
     });
 });
 
+app.get('/locationpicker', function (req, res) {
+    res.sendFile(__dirname + '/public/html/locationpicker.html', function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
+
 app.listen(port, function () {
     console.log('Gulp is running my app on PORT: ' + port);
 });

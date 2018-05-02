@@ -7,10 +7,20 @@ jQuery(document).ready(function () {
     console.log(url);
     var spot = url.searchParams.get("spot");
 
-    
+    var lat = url.searchParams.get("lat");
+    var lng = url.searchParams.get("lng");
+    if (lat != null && lng != null) {
+
+        $("#labelPosition").text("lat: " + lat + ", lng: " + lng);
+    }
+    else{
+        $("#labelPosition").text("Keine Position ausgewählt");
+    }
+
+
     switch (spot) {
         case "spot1":
-        selection_bathingspot.val("Option 1");
+            selection_bathingspot.val("Option 1");
             break;
         case "spot2":
             selection_bathingspot.val("Option 2");
