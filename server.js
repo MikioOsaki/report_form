@@ -35,10 +35,6 @@ app.get('/spot2', function (req, res) {
 });
 
 app.get('/form', function (req, res) {
-
- //   var spot = req.params.spot;
- //   res.sendFile(__dirname + '/public/html/form.html', spot);
-
     res.sendFile(__dirname + '/public/html/form.html', function (err) {
         if (err) {
             res.status(500).send(err);
@@ -49,8 +45,6 @@ app.get('/form', function (req, res) {
 app.listen(port, function () {
     console.log('Gulp is running my app on PORT: ' + port);
 });
-
-
 
 //TODO: set upload limit, multiple uploads
 
@@ -76,18 +70,17 @@ app.post('/upload', function (req, res) {
             ext = '.jpg';
             break;
         default:
-        ext = type;            
+            ext = type;
             break;
     }
     // Use the mv() method to place the file somewhere on your server
-    if(ext==".jpg" || ext == ".png"){
+    if (ext == ".jpg" || ext == ".png") {
         reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp() + ext, function (err) {
             if (err)
                 return res.status(500).send(err);
             res.send('File uploaded!');
         });
-    }
-    else{
+    } else {
         res.send('File extention ' + ext + " not supported. Please use jpg or png only.");
     }
 
