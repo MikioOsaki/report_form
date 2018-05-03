@@ -27,8 +27,8 @@
     </div>
   </header>
   <main>
-    <div class="container">
-      <Form:post>
+    <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+      <div class="container">
         <div class="row">
           <div class="twelve columns">
             <label for="selection_bathingspot">Badestelle</label>
@@ -63,30 +63,23 @@
             <textarea id="textarea" class="u-full-width"></textarea>
           </div>
         </div>
-        <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
-          <div class="row">
-            <div class="twelve columns">
-              <input type="file" name="reportImage" />
-            </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input type="file" name="reportImage" />
           </div>
-          <div class=" row">
-            <div class="twelve columns">
-              <input type='submit' value='Upload!' />
-            </div>
-          </div>
-        </form>
+        </div>
         <div class="row">
           <div class="twelve columns">
             <label id="labelPosition" for="locationpicker">Keine Position ausgewählt</label>
             <a id="locationpicker" class="button" href="locationpicker">Position auf Karte auswählen</a>
           </div>
         </div>
-        <div class="row">
+        <div class=" row">
           <div class="twelve columns">
-            <input type="submit" class="u-full-width" value="Senden">
+            <input type='submit' value='Upload!' />
           </div>
         </div>
-      </Form:post>
+    </form>
     </div>
   </main>
 </body>
