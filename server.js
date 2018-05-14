@@ -33,6 +33,13 @@ app.get('/spot2', function (req, res) {
         }
     });
 });
+app.get('/spot3', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spot3.html', function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
 
 app.get('/form', function (req, res) {
     res.sendFile(__dirname + '/public/html/form.html', function (err) {
