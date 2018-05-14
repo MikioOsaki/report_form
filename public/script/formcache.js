@@ -9,31 +9,18 @@ jQuery(document).ready(function () {
 
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var lat = url.searchParams.get("lat");
-    var lng = url.searchParams.get("lng");
+    var urlparam = url.searchParams.get("spot");
 
-    if (lat != null && lng != null) {
+    if (sessionStorage.getItem('lng') != null && sessionStorage.getItem('lat') != null ) {
         $("#labelPosition").text("Sie haben folgende Position gewählt:");
-        $('#lat').text("lat: " + lat);
-        $('#lng').text("lng: " + lng);
+        $('#lng').text("Längengrad: " + sessionStorage.getItem('lng'));
+        $('#lat').text(", Breitengrad: " + sessionStorage.getItem('lat'));
         $('#locationpicker').text("Gewählte Position ändern");
     } else {
         $("#labelPosition").text("Keine Position ausgewählt");
     }
 
     if (sessionStorage.getItem('spot') == null) {
-
-        console.log(url);
-        var urlparam = url.searchParams.get("spot");
-
-        var lat = url.searchParams.get("lat");
-        var lng = url.searchParams.get("lng");
-        if (lat != null && lng != null) {
-
-            $("#labelPosition").text("lat: " + lat + ", lng: " + lng);
-        } else {
-            $("#labelPosition").text("Keine Position ausgewählt");
-        }
 
         switch (urlparam) {
             case "spot1":
