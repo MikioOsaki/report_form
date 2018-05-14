@@ -13,7 +13,10 @@ jQuery(document).ready(function () {
     var lng = url.searchParams.get("lng");
 
     if (lat != null && lng != null) {
-        $("#labelPosition").text("lat: " + lat + ", lng: " + lng);
+        $("#labelPosition").text("Sie haben folgende Position gewählt:");
+        $('#lat').text("lat: " + lat);
+        $('#lng').text("lng: " + lng);
+        $('#locationpicker').text("Gewählte Position ändern");
     } else {
         $("#labelPosition").text("Keine Position ausgewählt");
     }
