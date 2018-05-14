@@ -7,17 +7,17 @@ jQuery(document).ready(function () {
     var text = $('#textarea');
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var lat = url.searchParams.get("lat"); 
-    var lng = url.searchParams.get("lng"); 
-    if (lat != null && lng != null) { 
+    var lat = url.searchParams.get("lat");
+    var lng = url.searchParams.get("lng");
+    if (lat != null && lng != null) {
 
-        $("#labelPosition").text("lat: " + lat + ", lng: " + lng); 
-    } else { 
-        $("#labelPosition").text("Keine Position ausgewählt"); 
+        $("#labelPosition").text("lat: " + lat + ", lng: " + lng);
+    } else {
+        $("#labelPosition").text("Keine Position ausgewählt");
     }
 
     if (sessionStorage.getItem('spot') == null) {
-      
+
         console.log(url);
         var urlparam = url.searchParams.get("spot");
 
@@ -37,6 +37,9 @@ jQuery(document).ready(function () {
             case "spot2":
                 spot.val("Option 2");
                 break;
+            case "spot3":
+                spot.val("Option 3");
+                break;
             default:
                 spot.val("Option 4");
                 break;
@@ -50,6 +53,6 @@ jQuery(document).ready(function () {
     $(spot).change(function () {
         sessionStorage.setItem('spot', spot.val());
     });
-    
+
 
 });
