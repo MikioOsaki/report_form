@@ -5,10 +5,19 @@ jQuery(document).ready(function () {
     var category = $('#selection_category');
     var headline = $('#input_headline');
     var text = $('#textarea');
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var lat = url.searchParams.get("lat"); 
+    var lng = url.searchParams.get("lng"); 
+    if (lat != null && lng != null) { 
+
+        $("#labelPosition").text("lat: " + lat + ", lng: " + lng); 
+    } else { 
+        $("#labelPosition").text("Keine Position ausgewählt"); 
+    }
 
     if (sessionStorage.getItem('spot') == null) {
-        var url_string = window.location.href;
-        var url = new URL(url_string);
+      
         console.log(url);
         var urlparam = url.searchParams.get("spot");
 
