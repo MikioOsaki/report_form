@@ -4,8 +4,8 @@ jQuery(document).ready(function () {
     var spot = $('#selection_bathingspot');
     var category = $('#selection_category');
     var headline = $('#input_headline');
-    var text = $('#textarea');
-    var image = $('#reportImage');
+    var textarea = $('#textarea');
+    var image_uploads = $('#image_uploads');
 
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -48,11 +48,11 @@ jQuery(document).ready(function () {
     if (sessionStorage.getItem('headline') != null) {
         headline.val(sessionStorage.getItem('headline'));
     }
-    if (sessionStorage.getItem('text') != null) {
-        text.val(sessionStorage.getItem('text'));
+    if (sessionStorage.getItem('textarea') != null) {
+        textarea.val(sessionStorage.getItem('textarea'));
     }
-    if (sessionStorage.getItem('reportImage') != null) {
-        reportImage.val(sessionStorage.getItem('reportImage'));
+    if (sessionStorage.getItem('image_uploads') != null) {
+        image_uploads.val(sessionStorage.getItem('image_uploads'));
     }
     $(spot).change(function () {
         sessionStorage.setItem('spot', spot.val());
@@ -63,11 +63,11 @@ jQuery(document).ready(function () {
     $(headline).change(function () {
         sessionStorage.setItem('headline', headline.val());
     });
-    $(text).change(function () {
-        sessionStorage.setItem('text', text.val());
+    $(textarea).change(function () {
+        sessionStorage.setItem('textarea', textarea.val());
     });
-    $(reportImage).change(function () {
-        sessionStorage.setItem('reportImage', reportImage.val());
+    $(image_uploads).change(function () {
+        sessionStorage.setItem('image_uploads', image_uploads.val());
     });
 
 });
