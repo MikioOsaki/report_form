@@ -71,26 +71,11 @@ app.post('/upload', function (req, res) {
         return res.status(400).send('No files were uploaded.');
 
     // The name of the ---input field--- (i.e. "reportImage") is used to retrieve the uploaded file
-    let reportImage = req.files.reportImage;
+    let reportImage = req.files.image_uploads;
 
-    let type = reportImage.mimetype;
-
-    let ext = null;
-
-    switch (type) {
-        case 'image/jpeg':
-            ext = '.jpg';
-            break;
-        case 'image/png':
-            ext = '.jpg';
-            break;
-        default:
-            ext = type;
-            break;
-    }
     // Use the mv() method to place the file somewhere on your server
-    if (ext == ".jpg" || ext == ".png") {
-        reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp() + ext, function (err) {
+    if (true) {
+        reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp(), function (err) {
             if (err)
                 return res.status(500).send(err);
             res.send('File uploaded!');
