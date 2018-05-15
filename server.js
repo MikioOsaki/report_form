@@ -72,7 +72,10 @@ app.post('/upload', function (req, res) {
 
     // The name of the ---input field--- (i.e. "image_uploads") is used to retrieve the uploaded file
     let reportImage = req.files.image_uploads;
-
+    console.log(req.originalUrl);
+    console.log(req.body);
+    var files = [].concat(req.files.upload);
+    console.log(files.length);
     // Use the mv() method to place the file somewhere on your server
     if (reportImage != null) {
         reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp(), function (err) {
