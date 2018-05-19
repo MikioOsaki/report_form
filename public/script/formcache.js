@@ -6,12 +6,21 @@ jQuery(document).ready(function () {
     var headline = $('#input_headline');
     var textarea = $('#textarea');
     var image_uploads = $('#image_uploads');
-
+    
     var url_string = window.location.href;
     var url = new URL(url_string);
     var urlparam = url.searchParams.get("spot");
+/**
+ * Populate Selection input syntax: jQuery.getJSON( url [, data ] [, success ] )
+ * getJSON is asynchronous !!!
+ */
+    $.getJSON("assets/Badegewaesser_Infrastruktur_v2.1.json", function (spots) {
+        spots.forEach(function (element) {
+            spot.append('<option value=' + element.id + '>' + element.name + '</option>');
+        });
+    });
 
-    if (sessionStorage.getItem('lng') != null && sessionStorage.getItem('lat') != null ) {
+    if (sessionStorage.getItem('lng') != null && sessionStorage.getItem('lat') != null) {
         $("#labelPosition").text("Sie haben folgende Position gewählt:");
         $('#lng').text("Längengrad: " + sessionStorage.getItem('lng'));
         $('#lat').text(", Breitengrad: " + sessionStorage.getItem('lat'));
@@ -52,7 +61,10 @@ jQuery(document).ready(function () {
         textarea.val(sessionStorage.getItem('textarea'));
     }
     if (sessionStorage.getItem('image_uploads') != null) {
-        image_uploads.val(sessionStorage.getItem('image_uploads'));
+        /**
+         * image_uploads.val(sessionStorage.getItem('image_uploads'));
+         * cannot be set due to security reasons.
+         */
     }
     $(spot).change(function () {
         sessionStorage.setItem('spot', spot.val());
