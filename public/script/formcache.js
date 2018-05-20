@@ -1,6 +1,5 @@
 jQuery(document).ready(function () {
 
-
     var inputs = $('#uploadForm :input');
     var spot = $('#selection_bathingspot');
     var category = $('#selection_category');
@@ -56,7 +55,6 @@ jQuery(document).ready(function () {
         }
     }
 
-
     function loadCache() {
         if (sessionStorage.getItem('spotID') != null) {
             spot.val(sessionStorage.getItem('spotID'));
@@ -98,6 +96,5 @@ jQuery(document).ready(function () {
         $(image_uploads).change(function () {
             sessionStorage.setItem('image_uploads', image_uploads.val());
         });
-
     }
 });
