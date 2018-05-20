@@ -1,4 +1,8 @@
 [{
+    "name": "Bitte Badestelle wählen...",
+    "id": 0
+  },
+  {
     "name": "Alter Hof",
     "id": 2,
     "detail_id": 344360,
