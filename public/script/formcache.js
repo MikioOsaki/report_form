@@ -1,6 +1,5 @@
 jQuery(document).ready(function () {
 
-
     var inputs = $('#uploadForm :input');
     var spot = $('#selection_bathingspot');
     var category = $('#selection_category');
@@ -30,6 +29,7 @@ jQuery(document).ready(function () {
 
     updateCache();
     updateLocationLable();
+
     function updateLocationLable() {
         if (sessionStorage.getItem('lng') != null && sessionStorage.getItem('lat') != null) {
             $("#labelPosition").text("Sie haben folgende Position gewählt:");
@@ -47,7 +47,6 @@ jQuery(document).ready(function () {
             sessionStorage.setItem('spot', spot.text());
         }
     }
-
 
     function loadCache() {
         if (sessionStorage.getItem('spot') != null) {
@@ -88,6 +87,5 @@ jQuery(document).ready(function () {
         $(image_uploads).change(function () {
             sessionStorage.setItem('image_uploads', image_uploads.val());
         });
-
     }
 });
