@@ -18,23 +18,23 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/spot1', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot1.html', function (err) {
+app.get('/spots/2', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/2.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
     });
 });
 
-app.get('/spot2', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot2.html', function (err) {
+app.get('/spots/46', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/46.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
     });
 });
-app.get('/spot74', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot74.html', function (err) {
+app.get('/spots/74', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/74.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
