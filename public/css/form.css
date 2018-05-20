@@ -8,7 +8,6 @@ form ol {
 
 form li,
 div>p {
-  background: #eee;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
@@ -27,16 +26,19 @@ form p {
 }
 
 #upload_label {
-  background-color: #7F9CCB;
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0;
   padding: 5px 10px;
   border-radius: 5px;
-  border: 1px ridge black;
+  border: 1px ridge;
   height: auto;
 }
 
 #upload_label:hover {
-  background-color: #2D5BA3;
-  color: white;
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB;
 }
 
 form label:active,

@@ -3,6 +3,7 @@ jQuery(document).ready(function () {
   var input = document.querySelector('#image_uploads');
   var preview = document.querySelector('.preview');
   input.style.visibility = 'hidden';
+  input.style.display = 'none';
   input.addEventListener('change', updateImageDisplay);
 
   function updateImageDisplay() {
