@@ -74,7 +74,9 @@ jQuery(document).ready(function () {
     function updateCache() {
 
         $(spot).change(function () {
-            sessionStorage.setItem('spot', spot.val());
+            debugger;
+            sessionStorage.setItem('spotID', spot.val());
+            sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         });
         $(category).change(function () {
             sessionStorage.setItem('category', category.val());
