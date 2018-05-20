@@ -50,8 +50,8 @@ jQuery(document).ready(function () {
     function selectSpotByUrlParam() {
         if (urlparam != undefined) {
             spot.val(urlparam);
-            debugger;
-            sessionStorage.setItem('spotNameXXX', spot.text());
+            sessionStorage.setItem('spotID', spot.val());
+            sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         }
     }
 
@@ -60,8 +60,8 @@ jQuery(document).ready(function () {
         if (sessionStorage.getItem('spotID') != null) {
             spot.val(sessionStorage.getItem('spotID'));
         }
-        if (sessionStorage.getItem('category') != null) {
-            category.val(sessionStorage.getItem('category'));
+        if (sessionStorage.getItem('categoryID') != null) {
+            category.val(sessionStorage.getItem('categoryID'));
         }
         if (sessionStorage.getItem('headline') != null) {
             headline.val(sessionStorage.getItem('headline'));
@@ -85,7 +85,8 @@ jQuery(document).ready(function () {
             sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         });
         $(category).change(function () {
-            sessionStorage.setItem('category', category.val());
+            sessionStorage.setItem('categoryID', category.val());
+            sessionStorage.setItem('categoryName', $('#selection_category option:selected').text());
         });
         $(headline).change(function () {
             sessionStorage.setItem('headline', headline.val());
