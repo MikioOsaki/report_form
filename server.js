@@ -33,8 +33,8 @@ app.get('/spot2', function (req, res) {
         }
     });
 });
-app.get('/spot3', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot3.html', function (err) {
+app.get('/spot74', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spot74.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
