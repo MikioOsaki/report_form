@@ -20,16 +20,22 @@ jQuery(document).ready(function () {
         spots.forEach(function (element) {
             spot.append('<option value=' + element.id + '>' + element.name + '</option>');
         });
-        if (sessionStorage.getItem('spot') == null) {
+        if (sessionStorage.getItem('spotID') == null) {
             selectSpotByUrlParam();
-            sessionStorage.setItem('spot', urlparam);
+            sessionStorage.setItem('spotID', urlparam);
         } else {
             loadCache();
         }
     });
+    $.getJSON("assets/report_categories.json", function (categories) {
+        categories.forEach(function (element) {
+            category.append('<option value=' + element.id + '>' + element.name + '</option>');
+        });
+    });
 
     updateCache();
     updateLocationLable();
+
     function updateLocationLable() {
         if (sessionStorage.getItem('lng') != null && sessionStorage.getItem('lat') != null) {
             $("#labelPosition").text("Sie haben folgende Position gewählt:");
@@ -44,14 +50,15 @@ jQuery(document).ready(function () {
     function selectSpotByUrlParam() {
         if (urlparam != undefined) {
             spot.val(urlparam);
-            sessionStorage.setItem('spot', spot.text());
+            debugger;
+            sessionStorage.setItem('spotNameXXX', spot.text());
         }
     }
 
 
     function loadCache() {
-        if (sessionStorage.getItem('spot') != null) {
-            spot.val(sessionStorage.getItem('spot'));
+        if (sessionStorage.getItem('spotID') != null) {
+            spot.val(sessionStorage.getItem('spotID'));
         }
         if (sessionStorage.getItem('category') != null) {
             category.val(sessionStorage.getItem('category'));
@@ -74,7 +81,6 @@ jQuery(document).ready(function () {
     function updateCache() {
 
         $(spot).change(function () {
-            debugger;
             sessionStorage.setItem('spotID', spot.val());
             sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         });
