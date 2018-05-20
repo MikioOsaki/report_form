@@ -18,23 +18,23 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/spot1', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot1.html', function (err) {
+app.get('/spots/2', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/2.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
     });
 });
 
-app.get('/spot2', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot2.html', function (err) {
+app.get('/spots/46', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/46.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
     });
 });
-app.get('/spot3', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spot3.html', function (err) {
+app.get('/spots/74', function (req, res) {
+    res.sendFile(__dirname + '/public/html/spots/74.html', function (err) {
         if (err) {
             res.status(500).send(err);
         }
@@ -70,33 +70,21 @@ app.post('/upload', function (req, res) {
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
 
-    // The name of the ---input field--- (i.e. "reportImage") is used to retrieve the uploaded file
-    let reportImage = req.files.reportImage;
-
-    let type = reportImage.mimetype;
-
-    let ext = null;
-
-    switch (type) {
-        case 'image/jpeg':
-            ext = '.jpg';
-            break;
-        case 'image/png':
-            ext = '.jpg';
-            break;
-        default:
-            ext = type;
-            break;
-    }
+    // The name of the ---input field--- (i.e. "image_uploads") is used to retrieve the uploaded file
+    let reportImage = req.files.image_uploads;
+    console.log(req.originalUrl);
+    console.log(req.body);
+    var files = [].concat(req.files.upload);
+    console.log(files.length);
     // Use the mv() method to place the file somewhere on your server
-    if (ext == ".jpg" || ext == ".png") {
-        reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp() + ext, function (err) {
+    if (reportImage != null) {
+        reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp(), function (err) {
             if (err)
                 return res.status(500).send(err);
             res.send('File uploaded!');
         });
     } else {
-        res.send('File extention ' + ext + " not supported. Please use jpg or png only.");
+        res.send('File not uploaded');
     }
 
 });
