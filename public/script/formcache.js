@@ -31,6 +31,7 @@ jQuery(document).ready(function () {
         categories.forEach(function (element) {
             category.append('<option value=' + element.id + '>' + element.name + '</option>');
         });
+        loadCache();
     });
 
     updateCache();
