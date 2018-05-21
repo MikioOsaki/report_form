@@ -1,12 +1,38 @@
 jQuery(document).ready(function () {
 
+  var maxFileSize = 10000000;
+  var totalFlieSize = 0;
   var input = document.querySelector('#image_uploads');
   var preview = document.querySelector('.preview');
+  var imagePrevParagrapg = $('#preview');
+
   input.style.visibility = 'hidden';
   input.style.display = 'none';
   input.addEventListener('change', updateImageDisplay);
+  $("#button_upload").prop("disabled", false);
 
   function updateImageDisplay() {
+    for (var index = 0; index < input.files.length; index++) {
+      totalFlieSize += input.files[index].size;
+    }
+    if (totalFlieSize > maxFileSize || input.files.length > 5) {
+      imagePrevParagrapg.text("Max. 5 Dateien oder max. 10 MB Gesamtgröße überschritten.");
+      imagePrevParagrapg.css({
+        'color': 'red',
+        'font-weight': 'bold'
+      });
+      $("#button_upload").prop("disabled", true);
+      $("#button_upload").css({
+        'color': 'red',
+      });
+      return;
+    }
+
+    $("#button_upload").prop("disabled", false);
+    $("#button_upload").css({
+      'color': '#FFFFFF'
+    });
+
     while (preview.firstChild) {
       preview.removeChild(preview.firstChild);
     }

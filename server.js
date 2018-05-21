@@ -71,20 +71,16 @@ app.post('/upload', function (req, res) {
         return res.status(400).send('No files were uploaded.');
 
     // The name of the ---input field--- (i.e. "image_uploads") is used to retrieve the uploaded file
-    let reportImage = req.files.image_uploads;
-    console.log(req.originalUrl);
-    console.log(req.body);
-    var files = [].concat(req.files.upload);
-    console.log(files.length);
+    var reportImage = req.files.image_uploads;
+    var maxFileSize = 11000000;
+    
     // Use the mv() method to place the file somewhere on your server
-    if (reportImage != null) {
-        reportImage.mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp(), function (err) {
-            if (err)
-                return res.status(500).send(err);
-            res.send('File uploaded!');
-        });
+    if (reportImage != null && req.headers['content-length'] <= maxFileSize) {
+        for (var index = 0; index < reportImage.length; index++) {
+            reportImage[index].mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp() + "_" + index + ".jpg");
+        }
+        res.send('File(s) uploaded!');
     } else {
         res.send('File not uploaded');
     }
-
 });
