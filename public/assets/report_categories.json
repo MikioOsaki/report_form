@@ -1,0 +1,15 @@
+[{
+    "id": 1,
+    "name": "Bitte Grund wählen..."
+  },
+  {
+    "id": 2,
+    "name": "Müll"
+  }, {
+    "id": 3,
+    "name": "Wasserqualität"
+  }, {
+    "id": 4,
+    "name": "Andere"
+  }
+]

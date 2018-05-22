@@ -19,12 +19,18 @@ jQuery(document).ready(function () {
         spots.forEach(function (element) {
             spot.append('<option value=' + element.id + '>' + element.name + '</option>');
         });
-        if (sessionStorage.getItem('spot') == null) {
+        if (sessionStorage.getItem('spotID') == null) {
             selectSpotByUrlParam();
-            sessionStorage.setItem('spot', urlparam);
+            sessionStorage.setItem('spotID', urlparam);
         } else {
             loadCache();
         }
+    });
+    $.getJSON("assets/report_categories.json", function (categories) {
+        categories.forEach(function (element) {
+            category.append('<option value=' + element.id + '>' + element.name + '</option>');
+        });
+        loadCache();
     });
 
     updateCache();
@@ -44,16 +50,17 @@ jQuery(document).ready(function () {
     function selectSpotByUrlParam() {
         if (urlparam != undefined) {
             spot.val(urlparam);
-            sessionStorage.setItem('spot', spot.text());
+            sessionStorage.setItem('spotID', spot.val());
+            sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         }
     }
 
     function loadCache() {
-        if (sessionStorage.getItem('spot') != null) {
-            spot.val(sessionStorage.getItem('spot'));
+        if (sessionStorage.getItem('spotID') != null) {
+            spot.val(sessionStorage.getItem('spotID'));
         }
-        if (sessionStorage.getItem('category') != null) {
-            category.val(sessionStorage.getItem('category'));
+        if (sessionStorage.getItem('categoryID') != null) {
+            category.val(sessionStorage.getItem('categoryID'));
         }
         if (sessionStorage.getItem('headline') != null) {
             headline.val(sessionStorage.getItem('headline'));
@@ -73,10 +80,12 @@ jQuery(document).ready(function () {
     function updateCache() {
 
         $(spot).change(function () {
-            sessionStorage.setItem('spot', spot.val());
+            sessionStorage.setItem('spotID', spot.val());
+            sessionStorage.setItem('spotName', $('#selection_bathingspot option:selected').text());
         });
         $(category).change(function () {
-            sessionStorage.setItem('category', category.val());
+            sessionStorage.setItem('categoryID', category.val());
+            sessionStorage.setItem('categoryName', $('#selection_category option:selected').text());
         });
         $(headline).change(function () {
             sessionStorage.setItem('headline', headline.val());
