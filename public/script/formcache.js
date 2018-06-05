@@ -6,6 +6,11 @@ jQuery(document).ready(function () {
     var headline = $('#input_headline');
     var textarea = $('#textarea');
     var image_uploads = $('#image_uploads');
+    var firstname = $('#input_firstname');
+    var lastname = $('#input_lastname');
+    var email = $('#input_email');
+    var phone = $('#input_phone');
+    var checkbox_send_copy = $('#checkbox_send_copy');
 
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -74,7 +79,26 @@ jQuery(document).ready(function () {
              * cannot be set due to security reasons.
              */
         }
-
+        if (sessionStorage.getItem('firstname') != null) {
+            firstname.val(sessionStorage.getItem('firstname'));
+        }
+        if (sessionStorage.getItem('lastname') != null) {
+            lastname.val(sessionStorage.getItem('lastname'));
+        }
+        if (sessionStorage.getItem('email') != null) {
+            email.val(sessionStorage.getItem('email'));
+        }
+        if (sessionStorage.getItem('phone') != null) {
+            phone.val(sessionStorage.getItem('phone'));
+        }
+        if (sessionStorage.getItem('checkbox_send_copy') != null) {
+            var isChecked = sessionStorage.getItem('checkbox_send_copy');
+            if (isChecked == 'true') {
+                checkbox_send_copy.prop("checked", true);
+            } else {
+                checkbox_send_copy.prop("checked", false);
+            }
+        }
     }
 
     function updateCache() {
@@ -95,6 +119,21 @@ jQuery(document).ready(function () {
         });
         $(image_uploads).change(function () {
             sessionStorage.setItem('image_uploads', image_uploads.val());
+        });
+        $(firstname).change(function () {
+            sessionStorage.setItem('firstname', firstname.val());
+        });
+        $(lastname).change(function () {
+            sessionStorage.setItem('lastname', lastname.val());
+        });
+        $(email).change(function () {
+            sessionStorage.setItem('email', email.val());
+        });
+        $(phone).change(function () {
+            sessionStorage.setItem('phone', phone.val());
+        });
+        $(checkbox_send_copy).change(function () {
+            sessionStorage.setItem('checkbox_send_copy', checkbox_send_copy.prop("checked"));
         });
     }
 });
