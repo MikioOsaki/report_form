@@ -1,6 +1,5 @@
 var express = require('express');
 
-var timeStamp = require('./public/script/timeStamp');
 
 const fileUpload = require('express-fileupload');
 
@@ -77,7 +76,7 @@ app.post('/upload', function (req, res) {
     // Use the mv() method to place the file somewhere on your server
     if (reportImage != null && req.headers['content-length'] <= maxFileSize) {
         for (var index = 0; index < reportImage.length; index++) {
-            reportImage[index].mv(__dirname + '/public/uploads/image_' + timeStamp.timeStamp() + "_" + index + ".jpg");
+            reportImage[index].mv(__dirname + '/public/uploads/image_' +  "_" + index + ".jpg");
         }
         res.send('File(s) uploaded!');
     } else {
