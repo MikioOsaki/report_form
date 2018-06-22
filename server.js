@@ -16,6 +16,14 @@ app.get('/', function (req, res) {
     });
 });
 
+app.get('/gen', function (req, res) {
+    res.sendFile(__dirname + '/public/html/genform.html', function (err) {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
+
 app.get('/spots/2', function (req, res) {
     res.sendFile(__dirname + '/public/html/spots/2.html', function (err) {
         if (err) {
