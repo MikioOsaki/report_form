@@ -1,0 +1,9 @@
+/**
+ * User-defined CSS here: 
+ * (Skeleton CSS will be overwrittten)
+ */
+
+ /* Override skeleton button specs text-transform: uppercase;  at skeleton.css line 182 */
+.button, .button-primary, .button_non_text_transform {
+    text-transform: none;
+}
