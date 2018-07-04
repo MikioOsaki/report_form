@@ -24,29 +24,6 @@ app.get('/gen', function (req, res) {
     });
 });
 
-app.get('/spots/2', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spots/2.html', function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
-
-app.get('/spots/46', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spots/46.html', function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
-app.get('/spots/74', function (req, res) {
-    res.sendFile(__dirname + '/public/html/spots/74.html', function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
-});
-
 app.get('/form', function (req, res) {
     res.sendFile(__dirname + '/public/html/form.html', function (err) {
         if (err) {
