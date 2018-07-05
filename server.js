@@ -61,7 +61,7 @@ app.post('http://localhost:8081/upload', function (req, res, next) {
 
     form.parse(req, function (err, fields, files) {
         res.writeHead(200, {
-            'content-type': 'application/json'
+            'content-type': 'text/html'
         });
         res.write('received upload:\n\n');
         res.end(util.inspect({
