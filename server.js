@@ -1,10 +1,13 @@
-var express = require('express');
+var express = require('express'),
+    formidable = require('formidable'),
+    util = require('util');
 
 const fileUpload = require('express-fileupload');
 
 var app = express();
 
 var port = process.env.PORT || 3000;
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -50,6 +53,16 @@ app.listen(port, function () {
 app.use(fileUpload());
 
 app.post('/upload', function (req, res) {
+
+        // parse a file upload
+        var form = new formidable.IncomingForm();
+ 
+        form.parse(req, function(err, fields, files) {
+          res.writeHead(200, {'content-type': 'text/plain'});
+          res.write('received upload:\n\n');
+          res.end(util.inspect({fields: fields, files: files}));
+        });
+        
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
 
