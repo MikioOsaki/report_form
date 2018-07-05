@@ -43,7 +43,7 @@
         <div class="row">
           <div class="twelve columns">
             <label for="selection_bathingspot">Badestelle*</label>
-            <select required id="selection_bathingspot" class="u-full-width">
+            <select required id="selection_bathingspot" name="selection_bathingspot" class="u-full-width">
               <option value="">Bitte Badestelle wählen...</option>
             </select>
           </div>
@@ -51,7 +51,7 @@
         <div class="row">
           <div class="twelve columns">
             <label for="selection_category">Grund der Meldung*</label>
-            <select required id="selection_category" class="u-full-width">
+            <select required id="selection_category" name="selection_category" class="u-full-width">
               <option value="">Bitte Grund wählen...</option>
             </select>
           </div>
@@ -59,13 +59,13 @@
         <div class="row">
           <div class="twelve columns">
             <label for="input_headline">Betreff*</label>
-            <input type="text" id="input_headline" class="u-full-width" required>
+            <input type="text" id="input_headline" name="input_headline" class="u-full-width" required>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
             <label for="textarea">Beschreibung*</label>
-            <textarea id="textarea" class="u-full-width" required></textarea>
+            <textarea id="textarea" name="textarea" class="u-full-width" required></textarea>
           </div>
         </div>
         <div class="row">
@@ -76,9 +76,9 @@
         <div class="row">
           <div class="twelve columns">
             <label id="labelPosition" for="locationpicker">Keine Position ausgewählt</label>
-            <span id="lng"></span>
-            <span id="lat"></span>
-            <a id="locationpicker" class="button u-full-width" href="locationpicker">Position auf Karte auswählen</a>
+            <span id="lng" name="lng"></span>
+            <span id="lat" name="lat"></span>
+            <a id="locationpicker" name="locationpicker" class="button u-full-width" href="locationpicker">Position auf Karte auswählen</a>
           </div>
         </div>
         <div class="row">
@@ -96,36 +96,36 @@
         <div class="row">
           <div class="six columns">
             <label for="input_firstname">Vorname</label>
-            <input type="text" id="input_firstname" class="u-full-width">
+            <input type="text" id="input_firstname" name="input_firstname" class="u-full-width">
           </div>
           <div class="six columns">
             <label for="input_lastname">Nachname</label>
-            <input type="text" id="input_lastname" class="u-full-width">
+            <input type="text" id="input_lastname" name="input_lastname" class="u-full-width">
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
             <label for="input_email">E-Mail</label>
-            <input type="email" id="input_email" class="u-full-width">
+            <input type="email" id="input_email" name="input_email" class="u-full-width">
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
             <label for="input_phone">Telefonnummer</label>
-            <input type="tel" id="input_phone" class="u-full-width">
+            <input type="tel" id="input_phone" name="input_phone" class="u-full-width">
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
             <label class="checkbox_send_copy">
-              <input type="checkbox" id="checkbox_send_copy">
+              <input type="checkbox" id="checkbox_send_copy" name="checkbox_send_copy">
               <span class="label-body">Ich möchte eine Kopie meines Reports an meine E-Mail Adresse erhalten</span>
             </label>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
-            <input id="button_upload" class="button-primary u-full-width" type='submit' value='Report absenden' />
+            <input id="button_upload" name="button_upload" class="button-primary u-full-width" type='submit' value='Report absenden' />
           </div>
         </div>
       </div>
