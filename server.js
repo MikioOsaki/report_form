@@ -48,7 +48,7 @@ app.listen(port, function () {
 
 //________________FORMIDABLE______________________
 
-app.post('/upload', function (req, res) {
+app.post('http://localhost:8081/upload', function (req, res) {
 
     // parse a file upload
     var form = new formidable.IncomingForm();
