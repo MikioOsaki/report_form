@@ -48,15 +48,20 @@ app.listen(port, function () {
 
 //________________FORMIDABLE______________________
 
-app.post('http://localhost:8081/upload', function (req, res) {
+app.use(express.json());
+
+app.post('http://localhost:8081/upload', function (req, res, next) {
 
     // parse a file upload
     var form = new formidable.IncomingForm();
     form.uploadDir = __dirname + '/public/uploads/';
     form.multiples = true;
+    
+    next();
+
     form.parse(req, function (err, fields, files) {
         res.writeHead(200, {
-            'content-type': 'text/plain'
+            'content-type': 'application/json'
         });
         res.write('received upload:\n\n');
         res.end(util.inspect({
