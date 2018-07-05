@@ -50,7 +50,7 @@ app.listen(port, function () {
 app.post('/upload', function (req, res) {
     // parse a file upload
     var form = new formidable.IncomingForm();
-    form.multiples = ture; //If this option is enabled, when you call form.parse, the files argument will contain arrays of files for inputs which submit multiple files using the HTML5 multiple attribute.
+    //form.multiples = ture; //If this option is enabled, when you call form.parse, the files argument will contain arrays of files for inputs which submit multiple files using the HTML5 multiple attribute.
     form.encoding = 'utf-8';
     //form.maxFileSize
     //form.uploadDir = "/my/dir"; //Sets the directory for placing file uploads in. You can move them later on using fs.rename(). The default is os.tmpdir().
